@@ -1,24 +1,32 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
- * _strchr -  function that locates a character in a string.
- * @s: cadena de caracteres.
- * @c: caracter a destacar.
- * Return: s.
- */
-
-char *_strchr(char *s, char c)
+  * _strspn - search a string for a set of bytes
+  * @s: source string
+  * @accept: accepted string
+  *
+  * Return: number of bytes in the init segment
+  */
+unsigned int _strspn(char *s, char *accept)
 {
-	int i;
+	unsigned int a = 0, b, t = 0;
 
-	i = 0;
-	while (s[i] != '\0')
+	while (accept[a])
 	{
-		i++;
-		if (s[i] == c)
+		b = 0;
+
+		while (s[b] != 32)
 		{
-			return (s + i);
+			if (accept[a] == s[b])
+			{
+				t++;
+			}
+
+			b++;
 		}
+
+		a++;
 	}
-	return (0);
+
+	return (t);
 }
